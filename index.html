@@ -11,20 +11,33 @@
 <body>
     <div id="section">
         <h1>Black Panther</h1>
-        <h3 class="chosenChar">Available Characters</h3>
+        <h3 class="chosen">Available Characters</h3>
         <div class="yourchar">
-            <button class="firstchar firstbutton" data-health="" data-attack="" data-counter="">T'Challa</button>
-            <button class="secondchar firstbutton" data-health="" data-attack="" data-counter="">Killmonger</button>
-            <button class="thirdchar firstbutton" data-health="" data-attack="" data-counter="">M'Baku</button>
-            <button class="fourthchar firstbutton" data-health="" data-attack="" data-counter="">W'Kabi</button>
+            <button class="firstchar firstbutton" data-name="T'Challa" data-health="" data-attack="" data-counter="">
+                <p>T'Challa</p>
+                <p>120</p>
+            </button>
+            <button class="secondchar firstbutton" data-name="Killmonger" data-health="" data-attack="" data-counter="">
+                <p>Killmonger</p>
+                <p>120</p>
+            </button>
+            <button class="thirdchar firstbutton" data-name="M'Baku" data-health="" data-attack="" data-counter="">
+                <p>M'Baku</p>
+                <p>120</p>
+            </button>
+            <button class="fourthchar firstbutton" data-name="W'Kabi" data-health="" data-attack="" data-counter="">
+                <p>W'Kabi</p>
+                <p>120</p>
+            </button>
         </div>
         <button>Attack</button>
-        <h3>Choose Your Enemy</h3>
+        <h3 class="enemy">Choose Your Enemy</h3>
         <div class="enemychar">
         </div>
         <h3>Chosen Enemy Character</h3>
         <div class="defender">
         </div>
+        <p class="message"></p>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/game.js"></script>
