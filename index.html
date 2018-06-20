@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-</head>
-<body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" href="assets/javascript/game.js"></script>
+<head>
+    <title>Black Panther</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="section">
+        <h1>Black Panther</h1>
+        <h3 class="chosenChar">Available Characters</h3>
+        <div class="yourchar">
+            <button class="firstchar firstbutton" data-health="" data-attack="" data-counter="">T'Challa</button>
+            <button class="secondchar firstbutton" data-health="" data-attack="" data-counter="">Killmonger</button>
+            <button class="thirdchar firstbutton" data-health="" data-attack="" data-counter="">M'Baku</button>
+            <button class="fourthchar firstbutton" data-health="" data-attack="" data-counter="">W'Kabi</button>
+        </div>
+        <button>Attack</button>
+        <h3>Choose Your Enemy</h3>
+        <div class="enemychar">
+        </div>
+        <h3>Chosen Enemy Character</h3>
+        <div class="defender">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
+
 </html>
