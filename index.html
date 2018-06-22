@@ -11,33 +11,33 @@
 <body>
     <div id="section">
         <h1>Black Panther</h1>
-        <h3 class="chosen">Available Characters</h3>
+        <h3 class="chosen">Choose <span id="your">Your</span> Character</h3>
         <div class="yourchar">
-            <button class="firstchar firstbutton" data-name="T'Challa" data-health="" data-attack="" data-counter="">
-                <p>T'Challa</p>
-                <p>120</p>
-            </button>
-            <button class="secondchar firstbutton" data-name="Killmonger" data-health="" data-attack="" data-counter="">
-                <p>Killmonger</p>
-                <p>120</p>
-            </button>
-            <button class="thirdchar firstbutton" data-name="M'Baku" data-health="" data-attack="" data-counter="">
-                <p>M'Baku</p>
-                <p>120</p>
-            </button>
-            <button class="fourthchar firstbutton" data-name="W'Kabi" data-health="" data-attack="" data-counter="">
-                <p>W'Kabi</p>
-                <p>120</p>
-            </button>
+            <div class="yfiller"></div>
+            <button class="char one" data-name="T'Challa" data-health="120" data-attack="14" data-counter="6">T'Challa<p class="first"></p></button>
+            <button class="char two" data-name="Killmonger" data-health="100" data-attack="10" data-counter="8">Killmonger<p class="second"></p></button>
+            <button class="char three" data-name="M'Baku" data-health="90" data-attack="8" data-counter="14">M'Baku<p class="third"></p></button>
+            <button class="char four" data-name="W'Kabi" data-health="110" data-attack="6" data-counter="10">W'Kabi<p class="fourth"></p></button>
         </div>
-        <button>Attack</button>
-        <h3 class="enemy">Choose Your Enemy</h3>
-        <div class="enemychar">
+        <button class="attack">Attack</button>
+        <h3 class="enemy">Your Character</h3>
+        <div class="yourcharacter">
+            <div class="efiller"></div>
+            <p id="attackpower">
+            </p>
+            <p id="counterattack">
+            </p>
         </div>
-        <h3>Chosen Enemy Character</h3>
+        <h3>Enemy Character</h3>
         <div class="defender">
+            <div class="dfiller"></div>
+            <p id="attackpowertwo">
+            </p>
+            <p id="counterattacktwo">
+            </p>
         </div>
         <p class="message"></p>
+        <button class="reset" style="display: none">Reset</button>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/game.js"></script>
