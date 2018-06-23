@@ -1,4 +1,3 @@
-var hello = [];
 var tchallaName = $('.one').data('name');
 var tchallaHealth = $('.one').data('health');
 var tchallaAttack = $('.one').data('attack');
@@ -28,7 +27,7 @@ var wkabiCounter = $('.four').data('counter');
 $('.fourth').text(wkabiHealth);
 
 $('.char').on('click', function() {
-    if (hello == 0) {
+    if ($('#your').text() == "Your") {
         if ($(this).data('name') == "T'Challa") {
             $(this).insertAfter('.efiller');
             $('.first').addClass('picked');
@@ -55,7 +54,7 @@ $('.char').on('click', function() {
         }
     }
 
-    if (hello.length == 1) {
+    if ($('#your').text() == "Enemy") {
         if ($(this).data('name') == "T'Challa") {
             $(this).insertAfter('.dfiller');
             $('.first').addClass('epicked');
@@ -81,7 +80,6 @@ $('.char').on('click', function() {
             $('#counterattacktwo').text('Counter Attack: ' + wkabiCounter);
         }
     }
-    hello.push("hi");
     $('#your').text("Enemy");
 });
 
@@ -92,30 +90,58 @@ $('.attack').on('click', function() {
     var enemyButton = $('.defender').find('.char');
     var enemyHealth = yourbutton.data('health');
     var enemyCounter = enemyButton.data('counter');
-    var yourNewHealth = $('.picked').text() - enemyCounter;
-    var newEnemyHealth = $('.epicked').text() - yourAttack;
-    $('.picked').text(yourNewHealth);
-    $('.epicked').text(newEnemyHealth);
+    var yourNewHealth = $('.yourcharacter').find('.picked').text() - enemyCounter;
+    var newEnemyHealth = $('.defender').find('.epicked').text() - yourAttack;
+    var double = $('.defender').find('.epicked').text() - yourAttack * 2;
+    var triple = $('.defender').find('.epicked').text() - yourAttack * 3;
 
+    if ($('.yourcharacter').find('button').length == 1 && $('.defender').find('button').length == 1) {
+        if ($('.defeated').find('button').length == 2) {
+            $('.picked').text(yourNewHealth);
+            $('.epicked').text(triple);
+            $('#multiplyer').text(' x3 multiplyer');
+        } else if ($('.defeated').find('button').length == 1) {
+            $('.picked').text(yourNewHealth);
+            $('.epicked').text(double);
+            $('#multiplyer').text(' x2 multiplyer');
+        } else {
+            $('.picked').text(yourNewHealth);
+            $('.epicked').text(newEnemyHealth);
+        }
 
-    if ($('.picked').text() <= 0) {
-        $('.attack').click(false);
-        $('.reset').show();
-        $('.message').text('you lost');
+        $('.messagetwo').text('');
+    }
+
+    if ($('.yourcharacter').find('button').length == 1) {
+        if ($('.picked').text() <= 0) {
+            $(this).off('click');
+            $('.messageone').text('You Lost');
+            $('.reset').show();
+        }
     }
 
     if ($('.epicked').text() <= 0) {
-        yourbutton = $('.yourcharacter').find('.char');
-        $('.attack').click(false);
-        $('.reset').show();
         $(enemyButton).insertAfter('.ffiller');
-        $('.message').text('you won');
+        $('.epicked').removeClass('epicked');
+    }
+
+    if ($('.yourcharacter').find('button').length == 0 || $('.defender').find('button').length == 0) {
+        $('.messagetwo').text('No characters to attack');
+    }
+
+    if ($('.defeated').find('button').length == 1) {
+        $('.messageone').text('you have defeated ' + $('.ffiller').parent("div").find(".char").data('name'));
+    }
+
+    if ($('.defeated').find('button').length == 3) {
+        $('.messagetwo').text('You Won! ' + $('.yourcharacter').find('.char').data('name') + ' has become the Black Panter');
     }
 });
 
 $('.reset').on('click', function() {
     location.reload();
 });
+
 
 
 // add initial characters using javascript not html

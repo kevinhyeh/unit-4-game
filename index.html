@@ -11,25 +11,35 @@
 <body>
     <div id="section">
         <h1>Black Panther</h1>
-        <h3 class="chosen">Choose <span id="your">Your</span> Character</h3>
         <div class="yourchar">
+            <h3 class="chosen">Choose <span id="your">Your</span> Character</h3>
             <div class="yfiller"></div>
-            <button class="char one" data-name="T'Challa" data-health="120" data-attack="14" data-counter="6">T'Challa<p class="first"></p></button>
-            <button class="char two" data-name="Killmonger" data-health="100" data-attack="10" data-counter="8">Killmonger<p class="second"></p></button>
-            <button class="char three" data-name="M'Baku" data-health="90" data-attack="8" data-counter="14">M'Baku<p class="third"></p></button>
-            <button class="char four" data-name="W'Kabi" data-health="110" data-attack="6" data-counter="10">W'Kabi<p class="fourth"></p></button>
+            <button class="char one" data-name="T'Challa" data-health="120" data-attack="14" data-counter="6">T'Challa
+                <p class="first"></p>
+            </button>
+            <button class="char two" data-name="Killmonger" data-health="100" data-attack="10" data-counter="8">Killmonger
+                <p class="second"></p>
+            </button>
+            <button class="char three" data-name="M'Baku" data-health="90" data-attack="8" data-counter="14">M'Baku
+                <p class="third"></p>
+            </button>
+            <button class="char four" data-name="W'Kabi" data-health="110" data-attack="6" data-counter="10">W'Kabi
+                <p class="fourth"></p>
+            </button>
         </div>
         <button class="attack">Attack</button>
-        <h3 class="enemy">Your Character</h3>
         <div class="yourcharacter">
+            <h3>Your Character</h3>
             <div class="efiller"></div>
-            <p id="attackpower">
-            </p>
-            <p id="counterattack">
-            </p>
+            <div>
+                <span id="attackpower"></span>
+                <span id="multiplyer"></span>
+                <p id="counterattack">
+                </p>
+            </div>
         </div>
-        <h3>Enemy Character</h3>
         <div class="defender">
+            <h3>Enemy Character</h3>
             <div class="dfiller"></div>
             <p id="attackpowertwo">
             </p>
@@ -39,9 +49,9 @@
         <div class="defeated">
             <h3>Defeated Characters</h3>
             <div class="ffiller"></div>
-        </div>    
-        <p class="message"></p>
-
+        </div>
+        <p class="messageone"></p>
+        <p class="messagetwo"></p>
         <button class="reset" style="display: none">Reset</button>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
