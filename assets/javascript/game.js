@@ -99,15 +99,17 @@ $('.attack').on('click', function() {
 
 
     if ($('.picked').text() <= 0) {
-        $(this).stop();
+        $('.attack').click(false);
         $('.reset').show();
+        $('.message').text('you lost');
     }
 
     if ($('.epicked').text() <= 0) {
         yourbutton = $('.yourcharacter').find('.char');
-        $(this).stop(stopAll);
+        $('.attack').click(false);
         $('.reset').show();
-        $('.yourbutton').insertAfter('.ffiller');
+        $(enemyButton).insertAfter('.ffiller');
+        $('.message').text('you won');
     }
 });
 
