@@ -1,142 +1,155 @@
-var tchallaName = $('.one').data('name');
-var tchallaHealth = $('.one').data('health');
-var tchallaAttack = $('.one').data('attack');
-var tchallaCounter = $('.one').data('counter');
+var characters = {
+    tchalla_attack: 14,
+    killmonger_attack: 10,
+    mbaku_attack: 8,
+    wkabi_attack: 6
+}
 
-$('.first').text(tchallaHealth);
 
-var killName = $('.two').data('name');
-var killHealth = $('.two').data('health');
-var killAttack = $('.two').data('attack');
-var killCounter = $('.two').data('counter');
+var tchallaHealth = $('.one').attr('data-health');
+var tchallaAttack = $('.one').attr('data-attack');
+var tchallaCounter = $('.one').attr('data-counter');
 
-$('.second').text(killHealth);
+$('.first').html(tchallaHealth);
 
-var mbakuName = $('.three').data('name');
-var mbakuHealth = $('.three').data('health');
-var mbakuAttack = $('.three').data('attack');
-var mbakuCounter = $('.three').data('counter');
+var killHealth = $('.two').attr('data-health');
+var killAttack = $('.two').attr('data-attack');
+var killCounter = $('.two').attr('data-counter');
 
-$('.third').text(mbakuHealth);
+$('.second').html(killHealth);
 
-var wkabiName = $('.four').data('name');
-var wkabiHealth = $('.four').data('health');
-var wkabiAttack = $('.four').data('attack');
-var wkabiCounter = $('.four').data('counter');
+var mbakuHealth = $('.three').attr('data-health');
+var mbakuAttack = $('.three').attr('data-attack');
+var mbakuCounter = $('.three').attr('data-counter');
 
-$('.fourth').text(wkabiHealth);
+$('.third').html(mbakuHealth);
 
+var wkabiHealth = $('.four').attr('data-health');
+var wkabiAttack = $('.four').attr('data-attack');
+var wkabiCounter = $('.four').attr('data-counter');
+
+$('.fourth').html(wkabiHealth);
+
+// moving characters
 $('.char').on('click', function() {
-    if ($('#your').text() == "Your") {
-        if ($(this).data('name') == "T'Challa") {
+    if ($('#your').html() == "Your") {
+        if ($(this).attr('data-name') == "T'Challa") {
             $(this).insertAfter('.efiller');
             $('.first').addClass('picked');
-            $('#attackpower').text('Attack Power: ' + tchallaAttack);
-            $('#counterattack').text('Counter Attack: ' + tchallaCounter);
         }
-        if ($(this).data('name') == "Killmonger") {
+        if ($(this).attr('data-name') == "Killmonger") {
             $(this).insertAfter('.efiller');
             $('.second').addClass('picked');
-            $('#attackpower').text('Attack Power: ' + killAttack);
-            $('#counterattack').text('Counter Attack: ' + killCounter);
         }
-        if ($(this).data('name') == "M'Baku") {
+        if ($(this).attr('data-name') == "M'Baku") {
             $(this).insertAfter('.efiller');
             $('.third').addClass('picked');
-            $('#attackpower').text('Attack Power: ' + mbakuAttack);
-            $('#counterattack').text('Counter Attack: ' + mbakuCounter);
         }
-        if ($(this).data('name') == "W'Kabi") {
+        if ($(this).attr('data-name') == "W'Kabi") {
             $(this).insertAfter('.efiller');
             $('.fourth').addClass('picked');
-            $('#attackpower').text('Attack Power: ' + wkabiAttack);
-            $('#counterattack').text('Counter Attack: ' + wkabiCounter);
         }
     }
 
-    if ($('#your').text() == "Enemy") {
-        if ($(this).data('name') == "T'Challa") {
+    if ($('#your').html() == "Enemy") {
+        if ($(this).attr('data-name') == "T'Challa") {
             $(this).insertAfter('.dfiller');
             $('.first').addClass('epicked');
-            $('#attackpowertwo').text('Attack Power: ' + tchallaAttack);
-            $('#counterattacktwo').text('Counter Attack: ' + tchallaCounter);
         }
-        if ($(this).data('name') == "Killmonger") {
+        if ($(this).attr('data-name') == "Killmonger") {
             $(this).insertAfter('.dfiller');
             $('.second').addClass('epicked');
-            $('#attackpowertwo').text('Attack Power: ' + killAttack);
-            $('#counterattacktwo').text('Counter Attack: ' + killCounter);
         }
-        if ($(this).data('name') == "M'Baku") {
+        if ($(this).attr('data-name') == "M'Baku") {
             $(this).insertAfter('.dfiller');
             $('.third').addClass('epicked');
-            $('#attackpowertwo').text('Attack Power: ' + mbakuAttack);
-            $('#counterattacktwo').text('Counter Attack: ' + mbakuCounter);
         }
-        if ($(this).data('name') == "W'Kabi") {
+        if ($(this).attr('data-name') == "W'Kabi") {
             $(this).insertAfter('.dfiller');
             $('.fourth').addClass('epicked');
-            $('#attackpowertwo').text('Attack Power: ' + wkabiAttack);
-            $('#counterattacktwo').text('Counter Attack: ' + wkabiCounter);
         }
     }
-    $('#your').text("Enemy");
+    $('#your').html("Enemy");
 });
 
+// attack button
 $('.attack').on('click', function() {
-    var yourbutton = $('.yourcharacter').find('.char');
-    var yourHealth = yourbutton.data('health');
-    var yourAttack = yourbutton.data('attack');
-    var enemyButton = $('.defender').find('.char');
-    var enemyHealth = yourbutton.data('health');
-    var enemyCounter = enemyButton.data('counter');
-    var yourNewHealth = $('.yourcharacter').find('.picked').text() - enemyCounter;
-    var newEnemyHealth = $('.defender').find('.epicked').text() - yourAttack;
-    var double = $('.defender').find('.epicked').text() - yourAttack * 2;
-    var triple = $('.defender').find('.epicked').text() - yourAttack * 3;
+    var yourbutton = $('.yourcharacter .char');
+    var yourHealth = parseInt(yourbutton.attr('data-health'));
+    var yourAttack = parseInt(yourbutton.attr('data-attack'));
+    var enemyButton = $('.defender .char');
+    var enemyHealth = parseInt(yourbutton.attr('data-health'));
+    var enemyCounter = parseInt(enemyButton.attr('data-counter'));
+    var yourNewHealth = $('.yourcharacter .picked').html() - enemyCounter;
+    var newEnemyHealth =  $('.defender .epicked').html() - yourAttack;
+    var start = parseInt($('.yourcharacter > .char').attr('data-attack'));
+    var counter = $('.defender > .char').attr('data-counter');
+    var double;
 
-    if ($('.yourcharacter').find('button').length == 1 && $('.defender').find('button').length == 1) {
-        if ($('.defeated').find('button').length == 2) {
-            $('.picked').text(yourNewHealth);
-            $('.epicked').text(triple);
-            $('#multiplyer').text(' x3 multiplyer');
-        } else if ($('.defeated').find('button').length == 1) {
-            $('.picked').text(yourNewHealth);
-            $('.epicked').text(double);
-            $('#multiplyer').text(' x2 multiplyer');
-        } else {
-            $('.picked').text(yourNewHealth);
-            $('.epicked').text(newEnemyHealth);
-        }
+    if ($('.yourcharacter button').length == 1 && $('.defender button').length == 1) {
+            if ($('.yourcharacter > .char').attr('data-name') == "T'Challa") {
+                $('#attacknumber').show();
+                double = start + characters.tchalla_attack;
+            } else if ($('.yourcharacter > .char').attr('data-name') == "Killmonger") {
+                $('#attacknumber').show();
+                double = start + characters.killmonger_attack;
+            } else if ($('.yourcharacter > .char').attr('data-name') == "M'Baku") {
+                $('#attacknumber').show();
+                double = start + characters.mbaku_attack;
+            } else {
+                $('#attacknumber').show();
+                double = start + characters.wkabi_attack;
+            }
+        $('.picked').html(yourNewHealth);
+        $('.epicked').html(newEnemyHealth);
+        $('#enemyname').html('You attacked ' + $('.defender > .char').attr('data-name') + ' for ');
+        $('#attacknumber').html(start);
+        $('#counter').html($('.defender > .char').attr('data-name') + ' attacked you for ' + counter);
+        $('.yourcharacter > .char').attr('data-attack', double);
+        // $('.messageone').text("");
+    } 
 
-        $('.messagetwo').text('');
-    }
-
-    if ($('.yourcharacter').find('button').length == 1) {
-        if ($('.picked').text() <= 0) {
+    // when you lose
+    if ($('.yourcharacter button').length == 1) {
+        if ($('.picked').html() <= 0) {
             $(this).off('click');
-            $('.messageone').text('You Lost');
+            $('.messageone').html('You Lost');
             $('.reset').show();
+            $('.messagetwo').text($('.defender > .char').attr('data-name') + ' is the new Black Panther');
         }
     }
 
-    if ($('.epicked').text() <= 0) {
+    // when you defeat a character
+    if ($('.epicked').html() <= 0) {
         $(enemyButton).insertAfter('.ffiller');
         $('.epicked').removeClass('epicked');
+        $('#enemyname, #attacknumber').empty();
+        $('.messageone').html('You have defeated ' + $('.ffiller').parent("div").find(".char").attr('data-name'));
     }
 
-    if ($('.yourcharacter').find('button').length == 0 || $('.defender').find('button').length == 0) {
-        $('.messagetwo').text('No characters to attack');
+    // no characters to attack message
+    // if ($('.yourcharacter').find('button').length == 0 || $('.defender').find('button').length == 0) {
+    //     $('.messageone').html('No characters to attack');
+    // }
+
+    // you have defeated (blank) message
+    if ($('.defender button').length == 0) {
+        $('#counter').html('');
+
     }
 
-    if ($('.defeated').find('button').length == 1) {
-        $('.messageone').text('you have defeated ' + $('.ffiller').parent("div").find(".char").data('name'));
-    }
-
-    if ($('.defeated').find('button').length == 3) {
-        $('.messagetwo').text('You Won! ' + $('.yourcharacter').find('.char').data('name') + ' has become the Black Panter');
+    // you won message
+    if ($('.defeated button').length == 3) {
+        $('.messagetwo').html('You Won! ' + $('.yourcharacter .char').attr('data-name') + ' has become the Black Panther');
+        $('.reset').show();
     }
 });
+
+// $('.alert').on('click', function() {
+//     if ($('.defender').find('button').length == 0) {
+
+//     }
+// });
 
 $('.reset').on('click', function() {
     location.reload();

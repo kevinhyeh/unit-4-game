@@ -1,6 +1,86 @@
 body {
+	background-image: url("http://www.4kwallpapersapp.com/wp-content/uploads/2018/02/902378.jpg");
+	background-size: cover;
 }
 
-/*.yourchar {
-	border: solid 10px #000;
-}*/
+h1,
+.yourchar,
+.attack,
+.col-lg-6 {
+    text-align: center;
+    margin: auto;
+}
+
+h1 {
+	font-size: 60px!important;
+}
+
+h1,
+h2,
+h3,
+p,
+.char,
+span {
+	color: #fff!important;
+}
+
+.char,
+p {
+	font-size: 30px;
+}
+
+p {
+	bottom: 0;
+}
+
+.attack {
+    width: 300px!important;
+    height: 150px!important;
+    margin-top: 80px!important;
+    font-size: 50px!important;
+}
+
+.defender {
+    text-align: right;
+}
+
+.char {
+    width: 150px;
+    height: 200px;
+    padding-top: 100px;
+    background-color: #fff;
+}
+
+.messageone {
+	padding-top: 60px;
+}
+
+#attacknumber {
+	display: none;
+}
+
+.reset {
+	text-align: center!important;
+	display: none;
+	margin: auto;
+}
+
+.one {
+	background-image: url("https://imgix.bustle.com/uploads/image/2018/4/26/639fc482-3370-40d1-a426-47ad882da75a-blackpanther596d2f19745730.jpg?w=998&h=598&fit=crop&crop=faces&auto=format&q=70");
+	background-size: cover;
+}
+
+.two {
+	background-image: url("https://i.kinja-img.com/gawker-media/image/upload/s--VkJviHTy--/c_scale,f_auto,fl_progressive,q_80,w_800/dbox8ecrsj5i6bxusnaq.jpg");
+	background-size: cover;
+}
+
+.three {
+	background-image: url("https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/a/a2/Mbaku_Profile_Final.JPG/revision/latest?cb=20171110151049");
+	background-size: cover;
+}
+
+.four {
+	background-image: url("https://vignette.wikia.nocookie.net/marvelstudios/images/b/b1/Black_Panther_Textless_Character_Poster_W%27Kabi.jpg/revision/latest/scale-to-width-down/2000?cb=20180201150728&path-prefix=fr");
+	background-size: cover;
+}

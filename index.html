@@ -4,56 +4,55 @@
 <head>
     <title>Black Panther</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="section">
-        <h1>Black Panther</h1>
-        <div class="yourchar">
-            <h3 class="chosen">Choose <span id="your">Your</span> Character</h3>
-            <div class="yfiller"></div>
-            <button class="char one" data-name="T'Challa" data-health="120" data-attack="14" data-counter="6">T'Challa
-                <p class="first"></p>
-            </button>
-            <button class="char two" data-name="Killmonger" data-health="100" data-attack="10" data-counter="8">Killmonger
-                <p class="second"></p>
-            </button>
-            <button class="char three" data-name="M'Baku" data-health="90" data-attack="8" data-counter="14">M'Baku
-                <p class="third"></p>
-            </button>
-            <button class="char four" data-name="W'Kabi" data-health="110" data-attack="6" data-counter="10">W'Kabi
-                <p class="fourth"></p>
-            </button>
-        </div>
-        <button class="attack">Attack</button>
-        <div class="yourcharacter">
-            <h3>Your Character</h3>
-            <div class="efiller"></div>
-            <div>
-                <span id="attackpower"></span>
-                <span id="multiplyer"></span>
-                <p id="counterattack">
+    <h1>Wakanda Forever</h1>
+    <div class="yourchar">
+        <h3 class="chosen">Choose <span id="your">Your</span> Character</h3>
+        <div class="yfiller"></div>
+        <button class="char one" data-name="T'Challa" data-health="120" data-attack="14" data-counter="20">T'Challa
+            <p class="first"></p>
+        </button>
+        <button class="char two" data-name="Killmonger" data-health="100" data-attack="16" data-counter="14">Killmonger
+            <p class="second"></p>
+        </button>
+        <button class="char three" data-name="M'Baku" data-health="90" data-attack="8" data-counter="18">M'Baku
+            <p class="third"></p>
+        </button>
+        <button class="char four" data-name="W'Kabi" data-health="110" data-attack="6" data-counter="22">W'Kabi
+            <p class="fourth"></p>
+        </button>
+    </div>
+    <div class="container mt-1">
+        <div class="row">
+            <div class="yourcharacter col-lg-3">
+                <h3>Your Character</h3>
+                <div class="efiller"></div>
+            </div>
+            <div class="col-lg-6">
+                <p class="messageone">
+                    <span id="enemyname"></span>
+                    <span id="attacknumber">0</span>
                 </p>
+                <p class="messagetwo">
+                    <span id="counter"></span>
+                </p>
+                <button class="attack">Attack</button>
+            </div>
+            <div class="defender col-lg-3">
+                <h3>Enemy Character</h3>
+                <div class="dfiller"></div>
             </div>
         </div>
-        <div class="defender">
-            <h3>Enemy Character</h3>
-            <div class="dfiller"></div>
-            <p id="attackpowertwo">
-            </p>
-            <p id="counterattacktwo">
-            </p>
-        </div>
-        <div class="defeated">
+        <div class="defeated" style="display: none">
             <h3>Defeated Characters</h3>
             <div class="ffiller"></div>
         </div>
-        <p class="messageone"></p>
-        <p class="messagetwo"></p>
-        <button class="reset" style="display: none">Reset</button>
     </div>
+    <button class="reset">Reset</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
