@@ -5,7 +5,6 @@ var characters = {
     wkabi_attack: 6
 }
 
-
 var tchallaHealth = $('.one').attr('data-health');
 var tchallaAttack = $('.one').attr('data-attack');
 var tchallaCounter = $('.one').attr('data-counter');
@@ -51,7 +50,7 @@ $('.char').on('click', function() {
         }
     }
 
-    if ($('#your').html() == "Enemy") {
+    if ($('#your').html() == "Enemy" || $('.chosen').html() == "Choose Your Next Enemy Character") {
         if ($(this).attr('data-name') == "T'Challa") {
             $(this).insertAfter('.dfiller');
             $('.first').addClass('epicked');
@@ -70,6 +69,21 @@ $('.char').on('click', function() {
         }
     }
     $('#your').html("Enemy");
+    $('#your').css('color', 'red');
+
+    // change instruction message
+    if ($('.yourcharacter button').length == 1 && $('.defender button').length == 1) {
+        $('.chosen').html("Preparing Next Opponent");
+    }
+
+    // delete instructions message
+    if ($('.yourchar button').length == 0) {
+        $('.chosen').empty();
+    }
+
+    if ($('.chosen').html() == "Preparing Next Opponent" || $('.chosen').html() == "") {
+        $('.messagethree').empty();
+    }
 });
 
 // attack button
@@ -81,56 +95,59 @@ $('.attack').on('click', function() {
     var enemyHealth = parseInt(yourbutton.attr('data-health'));
     var enemyCounter = parseInt(enemyButton.attr('data-counter'));
     var yourNewHealth = $('.yourcharacter .picked').html() - enemyCounter;
-    var newEnemyHealth =  $('.defender .epicked').html() - yourAttack;
+    var newEnemyHealth = $('.defender .epicked').html() - yourAttack;
     var start = parseInt($('.yourcharacter > .char').attr('data-attack'));
     var counter = $('.defender > .char').attr('data-counter');
     var double;
 
+    // player attacks
     if ($('.yourcharacter button').length == 1 && $('.defender button').length == 1) {
-            if ($('.yourcharacter > .char').attr('data-name') == "T'Challa") {
-                $('#attacknumber').show();
-                double = start + characters.tchalla_attack;
-            } else if ($('.yourcharacter > .char').attr('data-name') == "Killmonger") {
-                $('#attacknumber').show();
-                double = start + characters.killmonger_attack;
-            } else if ($('.yourcharacter > .char').attr('data-name') == "M'Baku") {
-                $('#attacknumber').show();
-                double = start + characters.mbaku_attack;
-            } else {
-                $('#attacknumber').show();
-                double = start + characters.wkabi_attack;
-            }
+        if ($('.yourcharacter > .char').attr('data-name') == "T'Challa") {
+            $('#attacknumber').show();
+            double = start + characters.tchalla_attack;
+        } else if ($('.yourcharacter > .char').attr('data-name') == "Killmonger") {
+            $('#attacknumber').show();
+            double = start + characters.killmonger_attack;
+        } else if ($('.yourcharacter > .char').attr('data-name') == "M'Baku") {
+            $('#attacknumber').show();
+            double = start + characters.mbaku_attack;
+        } else {
+            $('#attacknumber').show();
+            double = start + characters.wkabi_attack;
+        }
         $('.picked').html(yourNewHealth);
         $('.epicked').html(newEnemyHealth);
         $('#enemyname').html('You attacked ' + $('.defender > .char').attr('data-name') + ' for ');
         $('#attacknumber').html(start);
         $('#counter').html($('.defender > .char').attr('data-name') + ' attacked you for ' + counter);
         $('.yourcharacter > .char').attr('data-attack', double);
-        // $('.messageone').text("");
-    } 
+    }
 
     // when you lose
-    if ($('.yourcharacter button').length == 1) {
-        if ($('.picked').html() <= 0) {
-            $(this).off('click');
-            $('.messageone').html('You Lost');
-            $('.reset').show();
-            $('.messagetwo').text($('.defender > .char').attr('data-name') + ' is the new Black Panther');
-        }
+    if ($('.picked').html() <= 0) {
+        $(this).off('click');
+        $('.messageone').html('You Lost');
+        $('.reset').show();
+        $('.messagetwo').text($('.defender > .char').attr('data-name') + ' is the new Black Panther');
     }
+
 
     // when you defeat a character
     if ($('.epicked').html() <= 0) {
         $(enemyButton).insertAfter('.ffiller');
         $('.epicked').removeClass('epicked');
         $('#enemyname, #attacknumber').empty();
-        $('.messageone').html('You have defeated ' + $('.ffiller').parent("div").find(".char").attr('data-name'));
+        $('.messagethree').html('You have defeated ' + $('.ffiller').parent("div").find(".char").attr('data-name') + '<br>');
+        if ($('.yourchar button').length > 0) {
+            $('.chosen').html('Choose Your Next <span id="your">Enemy</span> Character');
+            $('#your').css('color', 'red');
+        }
     }
 
     // no characters to attack message
-    // if ($('.yourcharacter').find('button').length == 0 || $('.defender').find('button').length == 0) {
-    //     $('.messageone').html('No characters to attack');
-    // }
+    if ($('.yourcharacter button').length == 0 || $('.defender button').length == 0) {
+        $('.messagethree').append('No characters to attack');
+    }
 
     // you have defeated (blank) message
     if ($('.defender button').length == 0) {
@@ -140,22 +157,13 @@ $('.attack').on('click', function() {
 
     // you won message
     if ($('.defeated button').length == 3) {
+        $('.messageone').html("");
         $('.messagetwo').html('You Won! ' + $('.yourcharacter .char').attr('data-name') + ' has become the Black Panther');
         $('.reset').show();
     }
 });
 
-// $('.alert').on('click', function() {
-//     if ($('.defender').find('button').length == 0) {
-
-//     }
-// });
-
+// reset button
 $('.reset').on('click', function() {
     location.reload();
 });
-
-
-
-// add initial characters using javascript not html
-// use css to add images and use javascript to add classes for each character

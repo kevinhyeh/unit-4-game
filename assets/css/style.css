@@ -1,5 +1,5 @@
 body {
-	background-image: url("http://www.4kwallpapersapp.com/wp-content/uploads/2018/02/902378.jpg");
+	background-image: url("../images/background.jpg");
 	background-size: cover;
 }
 
@@ -13,14 +13,32 @@ h1,
 
 h1 {
 	font-size: 60px!important;
+	font-family: 'Abril Fatface', cursive!important;
+	border-bottom: solid 5px #fff;
+	width: 60%;
+}
+
+h2 {
+	font-size: 50px!important;
+}
+
+h3 {
+	border-bottom: solid 5px #fff;
+	font-family: 'Kanit', sans-serif!important;
+}
+
+h2,
+.attack,
+.char,
+p {
+	font-family: 'Kanit', sans-serif!important;
 }
 
 h1,
 h2,
 h3,
 p,
-.char,
-span {
+.char {
 	color: #fff!important;
 }
 
@@ -36,7 +54,7 @@ p {
 .attack {
     width: 300px!important;
     height: 150px!important;
-    margin-top: 80px!important;
+    margin-top: 40px!important;
     font-size: 50px!important;
 }
 
@@ -45,14 +63,18 @@ p {
 }
 
 .char {
-    width: 150px;
+    width: 160px;
     height: 200px;
     padding-top: 100px;
     background-color: #fff;
 }
 
+#your {
+	color: #00FF00;
+}
+
 .messageone {
-	padding-top: 60px;
+	padding-top: 20px;
 }
 
 #attacknumber {
@@ -66,21 +88,21 @@ p {
 }
 
 .one {
-	background-image: url("https://imgix.bustle.com/uploads/image/2018/4/26/639fc482-3370-40d1-a426-47ad882da75a-blackpanther596d2f19745730.jpg?w=998&h=598&fit=crop&crop=faces&auto=format&q=70");
+	background-image: url("../images/tchalla.jpg");
 	background-size: cover;
 }
 
 .two {
-	background-image: url("https://i.kinja-img.com/gawker-media/image/upload/s--VkJviHTy--/c_scale,f_auto,fl_progressive,q_80,w_800/dbox8ecrsj5i6bxusnaq.jpg");
+	background-image: url("../images/killmonger.jpg");
 	background-size: cover;
 }
 
 .three {
-	background-image: url("https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/a/a2/Mbaku_Profile_Final.JPG/revision/latest?cb=20171110151049");
+	background-image: url("../images/mbaku.jpg");
 	background-size: cover;
 }
 
 .four {
-	background-image: url("https://vignette.wikia.nocookie.net/marvelstudios/images/b/b1/Black_Panther_Textless_Character_Poster_W%27Kabi.jpg/revision/latest/scale-to-width-down/2000?cb=20180201150728&path-prefix=fr");
+	background-image: url("../images/wkabi.jpg");
 	background-size: cover;
 }
